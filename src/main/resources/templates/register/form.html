@@ -6,22 +6,25 @@
 </head>
 <body>
     <div>
-        <form th:action="@{/register}" th:method="post">
+        <form th:action="@{/register}" th:method="post" th:object="${registerUserCommand}">
             <fieldset>
                 <div>
                     <label>Nazwa użytkownika:
-                        <input th:name="username" type="text">
+                        <input th:field="*{username}" type="text">
                     </label>
+                    <div th:if="${#fields.hasErrors('username')}" th:text="${#fields.errors('username')}"></div>
                 </div>
                 <div>
                     <label>Email:
-                        <input th:name="email" type="email">
+                        <input th:field="*{email}" type="email">
                     </label>
+                    <div th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')}"></div>
                 </div>
                 <div>
                     <label>Hasło:
-                        <input th:name="password" type="password">
+                        <input th:field="*{password}" type="password">
                     </label>
+                    <div th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')}"></div>
                 </div>
             </fieldset>
             <fieldset>
