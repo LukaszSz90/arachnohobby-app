@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserConverter {
     public User from(RegisterUserCommand registerUserCommand) {
-        return null;
+        return User.builder()
+                .username(registerUserCommand.getUsername())
+                .email(registerUserCommand.getEmail())
+                .password(registerUserCommand.getPassword())
+                .build();
     }
 }

@@ -9,7 +9,7 @@ public class RegisterUserCommand {
     @NotNull
     private String username;
 
-    @NotNull @Email
+    @NotBlank @NotNull @Email
     private String email;
 
     @NotBlank @Size(min = 8, max = 128)

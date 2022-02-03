@@ -1,5 +1,6 @@
 package LukaszSz90.arachnohobbyapp.web.controller;
 
+import LukaszSz90.arachnohobbyapp.exception.UserAlreadyExistException;
 import LukaszSz90.arachnohobbyapp.service.UserService;
 import LukaszSz90.arachnohobbyapp.web.command.RegisterUserCommand;
 import lombok.RequiredArgsConstructor;
@@ -33,10 +34,20 @@ public class RegistrationController {
             return "register/form";
         }
 
-        Long id = userService.create(registerUserCommand);
-
-        log.debug("Created user with id = {}", id);
-        return "redirect:/login";
+        try {
+            Long id = userService.create(registerUserCommand);
+            log.debug("Created user with id = {}", id);
+            return "redirect:/login";
+        }
+        catch (UserAlreadyExistException uaee) {
+            bindingResult.rejectValue("username",
+                    null, "User with entered 'username' already exists");
+            return "register/form";
+        }
+        catch (RuntimeException re) {
+            bindingResult.rejectValue(null, null, "Error occurred!");
+            return "register/form";
+        }
     }
 
 
