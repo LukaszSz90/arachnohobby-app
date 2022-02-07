@@ -1,6 +1,8 @@
 package LukaszSz90.arachnohobbyapp.converter;
 
 import LukaszSz90.arachnohobbyapp.domain.model.User;
+import LukaszSz90.arachnohobbyapp.domain.model.UserProfile;
+import LukaszSz90.arachnohobbyapp.web.command.EditUserProfileCommand;
 import LukaszSz90.arachnohobbyapp.web.command.RegisterUserCommand;
 import org.springframework.stereotype.Component;
 
@@ -11,5 +13,14 @@ public class UserConverter {
                 .username(registerUserCommand.getUsername())
                 .password(registerUserCommand.getPassword())
                 .build();
+    }
+
+    public UserProfile from (EditUserProfileCommand editUserProfileCommand, User userToEdit) {
+        UserProfile userProfile = userToEdit.getUserProfile();
+        userProfile.setNickName(editUserProfileCommand.getNickName()
+        );
+        userProfile.setBreedingPeriod(editUserProfileCommand.getBreedingPeriod());
+        userProfile.setLivingLocalisation(editUserProfileCommand.getLivingLocalisation());
+        return userProfile;
     }
 }
