@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-@EqualsAndHashCode(of = "username")
+@EqualsAndHashCode(of = {"username", "details"})
 @ToString(exclude = "password")
 public class User implements Serializable {
 
@@ -34,5 +34,6 @@ public class User implements Serializable {
     @Column(name = "role")
     private Set<String> roles;
 
-
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    private UserDetails details;
 }

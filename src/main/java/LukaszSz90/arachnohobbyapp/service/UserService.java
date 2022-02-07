@@ -2,6 +2,7 @@ package LukaszSz90.arachnohobbyapp.service;
 
 import LukaszSz90.arachnohobbyapp.converter.UserConverter;
 import LukaszSz90.arachnohobbyapp.domain.model.User;
+import LukaszSz90.arachnohobbyapp.domain.model.UserDetails;
 import LukaszSz90.arachnohobbyapp.domain.repository.UserRepository;
 import LukaszSz90.arachnohobbyapp.exception.UserAlreadyExistException;
 import LukaszSz90.arachnohobbyapp.web.command.RegisterUserCommand;
