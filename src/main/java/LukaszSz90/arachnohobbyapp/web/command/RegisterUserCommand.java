@@ -6,11 +6,8 @@ import javax.validation.constraints.*;
 @Data
 public class RegisterUserCommand {
 
-    @NotNull
+    @NotNull @Email
     private String username;
-
-    @NotBlank @NotNull @Email
-    private String email;
 
     @NotBlank @Size(min = 8, max = 128)
     private String password;

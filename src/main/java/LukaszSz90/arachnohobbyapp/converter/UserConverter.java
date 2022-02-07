@@ -9,7 +9,6 @@ public class UserConverter {
     public User from(RegisterUserCommand registerUserCommand) {
         return User.builder()
                 .username(registerUserCommand.getUsername())
-                .email(registerUserCommand.getEmail())
                 .password(registerUserCommand.getPassword())
                 .build();
     }
