@@ -6,24 +6,19 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "users_details")
+@Table(name = "users_profile")
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
 @ToString(exclude = "user")
 @EqualsAndHashCode(of = {"user","userId"})
-public class UserProfile {
+public class UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nick_name")
     private String nickName;
-
-    @Column(name = "breeding_period")
     private LocalDate breedingPeriod;
-
-    @Column(name = "living_localisation")
     private String livingLocalisation;
 
     @OneToOne(fetch = FetchType.EAGER)

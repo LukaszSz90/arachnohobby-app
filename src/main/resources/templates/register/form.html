@@ -2,18 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="Rejestracja">Sign up</title>
+    <title th:text="SignUp">Sign up</title>
 </head>
 <body>
     <div>
         <form th:action="@{/register}" th:method="post" th:object="${registerUserCommand}">
-            <h1>Sigh up</h1>
+            <h1>Sign up</h1>
             <table>
                 <tr>
                     <td>Enter email:</td>
                     <td>
                         <label>
-                            <input th:field="*{username}" type="email">
+                            <input th:field="*{username}" type="email"/>
                         </label>
                         <div th:if="${#fields.hasErrors('username')}" th:text="${#fields.errors('username')}"></div>
                     </td>
@@ -22,7 +22,7 @@
                     <td>Set password:</td>
                     <td>
                         <label>
-                            <input th:field="*{password}" type="password">
+                            <input th:field="*{password}" type="password"/>
                         </label>
                         <div th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')}"></div>
                     </td>

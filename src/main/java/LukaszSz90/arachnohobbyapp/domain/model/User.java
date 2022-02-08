@@ -28,5 +28,5 @@ public class User implements Serializable {
     private Set<String> roles = new HashSet<>();
 
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-    private UserProfile userProfile;
+    private UserDetails userDetails;
 }
