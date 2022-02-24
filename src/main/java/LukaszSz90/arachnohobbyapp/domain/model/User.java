@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-@EqualsAndHashCode(of = {"username", "details"})
+@EqualsAndHashCode(of = {"username", "userdetails"})
 @ToString(exclude = "password")
 public class User implements Serializable {
 

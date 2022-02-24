@@ -6,11 +6,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "users_profile")
+@Table(name = "users_details")
 @Data
 @NoArgsConstructor @AllArgsConstructor @Builder
 @ToString(exclude = "user")
-@EqualsAndHashCode(of = {"user","userId"})
+@EqualsAndHashCode(of = {"userId"})
 public class UserDetails {
 
     @Id
@@ -20,6 +20,7 @@ public class UserDetails {
     private String nickName;
     private LocalDate breedingPeriod;
     private String livingLocalisation;
+    //private String pictureNameUrl;
 
     @OneToOne(fetch = FetchType.EAGER)
     private User user;
