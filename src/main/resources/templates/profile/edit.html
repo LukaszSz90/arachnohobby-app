@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit profile</title>
+</head>
+<body>
+    <h1>Edit profile </h1>
+    <div>
+        <form th:action="@{/profile}" method="post" th:object="${editUserCommand}">
+            <div>
+                <label>Nick name: 
+                    <input type="text" th:field="*{nickName}"/>
+                </label>
+            </div>
+            <div>
+                <label>Localization: 
+                    <input type="text" th:field="*{livingLocalisation}"/>
+                </label>
+            </div>
+            <div>
+                <label>Breeding period:
+                    <input type="date" th:field="*{breedingPeriod}"/>
+                </label>
+            </div>
+            <div>
+                <label>Enter picture URL
+                    <input type="text" th:field="*{pictureNameUrl}"/>
+                </label>
+            </div>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

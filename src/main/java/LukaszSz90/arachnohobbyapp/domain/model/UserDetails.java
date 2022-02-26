@@ -20,9 +20,11 @@ public class UserDetails {
     private String nickName;
     private LocalDate breedingPeriod;
     private String livingLocalisation;
-    //private String pictureNameUrl;
+    private String pictureNameUrl;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne
+//            (fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "user_Id", insertable = false, updatable = false)
