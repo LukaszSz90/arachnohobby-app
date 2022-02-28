@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${userNick}">User profile</title>
+</head>
+<body>
+<div>
+    <div>
+        <img th:src="${pictureNameUrl}">
+    </div>
+    <div>
+        <h1 th:text="${nickName}">Default nick</h1>
+    </div>
+    <div>
+        <p th:text="${'Email: ' + username}">default@email.com</p><br/>
+    </div>
+    <div>
+        <p th:text="${'Localization: ' + livingLocalization}">default localization</p><br/>
+    </div>
+    <div>
+        <p th:text="${'Breeding period: ' + breedingPeriod}">default breeding period</p><br/>
+    </div>
+    <div>
+        <button><a th:href="@{/profile/edit}">edit</a></button>
+    </div>
+
+</div>
+
+</body>
+</html>

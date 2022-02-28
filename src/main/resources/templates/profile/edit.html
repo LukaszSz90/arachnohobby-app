@@ -7,7 +7,7 @@
 <body>
     <h1>Edit profile </h1>
     <div>
-        <form th:action="@{/profile}" method="post" th:object="${editUserCommand}">
+        <form th:action="@{/profile/edit}" method="post" th:object="${editUserCommand}">
             <div>
                 <label>Nick name: 
                     <input type="text" th:field="*{nickName}"/>
@@ -15,7 +15,7 @@
             </div>
             <div>
                 <label>Localization: 
-                    <input type="text" th:field="*{livingLocalisation}"/>
+                    <input type="text" th:field="*{livingLocalization}"/>
                 </label>
             </div>
             <div>

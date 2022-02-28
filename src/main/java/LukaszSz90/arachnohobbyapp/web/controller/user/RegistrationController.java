@@ -1,4 +1,4 @@
-package LukaszSz90.arachnohobbyapp.web.controller;
+package LukaszSz90.arachnohobbyapp.web.controller.user;
 
 import LukaszSz90.arachnohobbyapp.exception.UserAlreadyExistException;
 import LukaszSz90.arachnohobbyapp.service.UserService;

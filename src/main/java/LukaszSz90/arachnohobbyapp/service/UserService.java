@@ -1,7 +1,6 @@
 package LukaszSz90.arachnohobbyapp.service;
 
 import LukaszSz90.arachnohobbyapp.converter.UserConverter;
-import LukaszSz90.arachnohobbyapp.data.user.UserSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.User;
 import LukaszSz90.arachnohobbyapp.domain.model.UserDetails;
 import LukaszSz90.arachnohobbyapp.domain.repository.UserRepository;
@@ -47,8 +46,8 @@ public class UserService {
         return userToCreate.getId();
     }
 
-    @Transactional
-    public UserDetails getCurrentUserSummary() {
+
+    public UserDetails getCurrentUserDetails() {
         log.debug("Downloading the data of the currently logged user");
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
 
@@ -70,5 +69,10 @@ public class UserService {
 
         log.debug("User data has been changed: {}", userToEdit.getUserDetails());
         return true;
+    }
+
+    public User getLoggedUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.getAuthenticatedUser(username);
     }
 }

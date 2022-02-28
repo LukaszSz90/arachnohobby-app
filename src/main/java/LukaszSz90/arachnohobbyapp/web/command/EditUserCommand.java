@@ -17,6 +17,6 @@ public class EditUserCommand {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate breedingPeriod;
 
-    private String livingLocalisation;
+    private String livingLocalization;
     private String pictureNameUrl;
 }

@@ -1,6 +1,5 @@
 package LukaszSz90.arachnohobbyapp.converter;
 
-import LukaszSz90.arachnohobbyapp.data.user.UserSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.User;
 import LukaszSz90.arachnohobbyapp.domain.model.UserDetails;
 import LukaszSz90.arachnohobbyapp.web.command.EditUserCommand;
@@ -22,11 +21,10 @@ public class UserConverter {
         log.debug("Data to edit: {}", editUserCommand);
         UserDetails userDetails = userToEdit.getUserDetails();
         userDetails.setNickName(editUserCommand.getNickName());
-        userDetails.setLivingLocalisation(editUserCommand.getLivingLocalisation());
+        userDetails.setLivingLocalization(editUserCommand.getLivingLocalization());
         userDetails.setBreedingPeriod(editUserCommand.getBreedingPeriod());
         userDetails.setPictureNameUrl(editUserCommand.getPictureNameUrl());
 
         return userDetails;
-
     }
 }

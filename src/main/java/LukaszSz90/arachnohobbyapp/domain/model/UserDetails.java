@@ -19,7 +19,7 @@ public class UserDetails {
 
     private String nickName;
     private LocalDate breedingPeriod;
-    private String livingLocalisation;
+    private String livingLocalization;
     private String pictureNameUrl;
 
     @OneToOne

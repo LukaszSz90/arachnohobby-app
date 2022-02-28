@@ -1,6 +1,5 @@
-package LukaszSz90.arachnohobbyapp.web.controller;
+package LukaszSz90.arachnohobbyapp.web.controller.user;
 
-import LukaszSz90.arachnohobbyapp.data.user.UserSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.UserDetails;
 import LukaszSz90.arachnohobbyapp.service.UserService;
 import LukaszSz90.arachnohobbyapp.web.command.EditUserCommand;
@@ -30,11 +29,11 @@ public class UserProfileController {
     }
 
     private EditUserCommand showCurrentDetails() {
-        UserDetails userDetails = userService.getCurrentUserSummary();
+        UserDetails userDetails = userService.getCurrentUserDetails();
         return EditUserCommand.builder()
                 .nickName(userDetails.getNickName())
                 .breedingPeriod(userDetails.getBreedingPeriod())
-                .livingLocalisation(userDetails.getLivingLocalisation())
+                .livingLocalization(userDetails.getLivingLocalization())
                 .pictureNameUrl(userDetails.getPictureNameUrl())
                 .build();
     }
@@ -50,13 +49,13 @@ public class UserProfileController {
         try {
             boolean isEditSuccess = userService.editUserDetails(editUserCommand);
             log.debug("User data has been changed: {}", isEditSuccess);
-            return "redirect:/profile/edit";
+            return "redirect:/profile/view";
         }
         catch (RuntimeException re) {
             log.debug("Error while changing data");
             bindingResult.rejectValue(null, null, "Error occured");
         }
 
-        return "redirect:/profile/user";
+        return "redirect:/profile/vew";
     }
 }
