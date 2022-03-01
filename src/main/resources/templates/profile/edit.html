@@ -5,33 +5,29 @@
     <title>Edit profile</title>
 </head>
 <body>
-    <h1>Edit profile </h1>
-    <div>
-        <form th:action="@{/profile/edit}" method="post" th:object="${editUserCommand}">
-            <div>
-                <label>Nick name: 
-                    <input type="text" th:field="*{nickName}"/>
-                </label>
-            </div>
-            <div>
-                <label>Localization: 
-                    <input type="text" th:field="*{livingLocalization}"/>
-                </label>
-            </div>
-            <div>
-                <label>Breeding period:
-                    <input type="date" th:field="*{breedingPeriod}"/>
-                </label>
-            </div>
-            <div>
-                <label>Enter picture URL
-                    <input type="text" th:field="*{pictureNameUrl}"/>
-                </label>
-            </div>
-            <div>
-                <button type="submit">Save</button>
-            </div>
-        </form>
-    </div>
+<h1>Edit profile </h1>
+<div>
+    <form th:action="@{/profile/edit}" method="post" th:object="${editUserCommand}">
+        <div>
+            <label>Nick name: </label>
+            <input type="text" th:field="*{nickName}"/>
+        </div>
+        <div>
+            <label>Localization: </label>
+            <input type="text" th:field="*{livingLocalization}"/>
+        </div>
+        <div>
+            <label>Breeding period: </label>
+            <input type="date" th:field="*{breedingPeriod}"/>
+        </div>
+        <div>
+            <label>Enter picture URL </label>
+            <input type="text" th:field="*{pictureNameUrl}"/>
+        </div>
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

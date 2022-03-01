@@ -13,6 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
+import java.time.LocalDate;
+import java.util.Locale;
 import java.util.Set;
 
 @Service
@@ -35,11 +37,18 @@ public class UserService {
             throw new UserAlreadyExistException(String.format("User '%s' already exist",userToCreate.getUsername()));
         }
 
+        Locale locale = Locale.getDefault();
+        String country = locale.getDisplayCountry();
+
         userToCreate.setActive(Boolean.TRUE);
         userToCreate.setRoles(Set.of("ROLE_USER"));
         userToCreate.setPassword(passwordEncoder.encode(userToCreate.getPassword()));
         userToCreate.setUserDetails(UserDetails.builder()
                 .user(userToCreate)
+                    .nickName("user")
+                    .pictureNameUrl("/img/default_user.jpg")
+                    .breedingPeriod(LocalDate.now())
+                    .livingLocalization("" + country)
                 .build());
         userRepository.save(userToCreate);
         log.debug("User is save: {}", userToCreate);

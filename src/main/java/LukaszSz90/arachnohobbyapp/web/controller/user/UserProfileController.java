@@ -24,12 +24,14 @@ public class UserProfileController {
     @GetMapping
     public String geEditProfilePage(Model model) {
         EditUserCommand editUserCommand = showCurrentDetails();
+
         model.addAttribute("editUserCommand", editUserCommand);
         return "profile/edit";
     }
 
     private EditUserCommand showCurrentDetails() {
         UserDetails userDetails = userService.getCurrentUserDetails();
+
         return EditUserCommand.builder()
                 .nickName(userDetails.getNickName())
                 .breedingPeriod(userDetails.getBreedingPeriod())
