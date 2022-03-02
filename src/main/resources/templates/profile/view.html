@@ -5,14 +5,16 @@
     <title th:text="${userNick}">User profile</title>
 </head>
 <body>
-<div>
-    <img th:src="${pictureNameUrl}" style="width: 128px; height: 128px"><br/>
-    <h1 th:text="${nickName}">Default nick</h1>
-    <p th:text="${'Email: ' + username}">default@email.com</p>
-    <p th:text="${'Localization: ' + livingLocalization}">default localization</p>
-    <p th:text="${'Breeding period: ' + breedingPeriod}">default breeding period</p><br/>
-    <button><a th:href="@{/profile/edit}" style="text-decoration: none;">Edit</a></button>
-</div>
-
+    <div>
+        <img th:src="${pictureNameUrl}" style="width: 128px; height: 128px"><br/>
+        <h1 th:text="${nickName}">Default nick</h1>
+        <p th:text="${'Email: ' + username}">default@email.com</p>
+        <p th:text="${'Localization: ' + livingLocalization}">default localization</p>
+        <p th:text="${'Breeding period: ' + breedingPeriod}">default breeding period</p><br/>
+        <button><a th:href="@{/profile/edit}" style="text-decoration: none;">Edit</a></button>
+    </div>
+    <div>
+        <button><a th:href="@{/home}" style="text-decoration:none;">Back to main page</a></button>
+    </div>
 </body>
 </html>

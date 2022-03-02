@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+</head>
+<body>
+    <div>
+        <h1>SIGN IN</h1>
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div th:if="${param.error}">The account email or password that you have entered is incorrect.</div>
+        <div th:if="${param.logout}">You have been successfully logged out</div>
+        <div>
+            <div>
+                <input type="email" name="username" required placeholder="Email Address"/>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="password" name="password" required placeholder="Password"/>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Sign in</button>
+        </div>
+        <div>
+            Don't have an Arachnohobbia Account? <a th:href="@{/register}" style="text-decoration: underline;">Sign up</a>
+        </div>
+
+    </form>
+</body>
+</html>

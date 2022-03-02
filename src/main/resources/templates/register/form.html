@@ -32,8 +32,10 @@
                         <label>
                             <button type="submit">Create account</button>
                         </label>
-                        <div>Already signed up? Login</div>
-                        </td>
+                        <div>
+                            Already signed up? <a th:href="@{/profile/edit}" style="text-decoration: underline;">Sign in</a>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </form>
