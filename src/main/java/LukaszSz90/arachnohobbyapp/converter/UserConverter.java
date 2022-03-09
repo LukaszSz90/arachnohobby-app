@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class UserConverter {
     public User from(RegisterUserCommand registerUserCommand) {
+        if (registerUserCommand == null) throw new IllegalArgumentException("Request must not be null");
         return User.builder()
                 .username(registerUserCommand.getUsername())
                 .password(registerUserCommand.getPassword())
