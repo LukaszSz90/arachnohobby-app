@@ -23,7 +23,6 @@ public class UserDetails {
     private String pictureNameUrl;
 
     @OneToOne
-//            (fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 

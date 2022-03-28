@@ -29,4 +29,9 @@ public class User implements Serializable {
 
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private UserDetails userDetails;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private UserArachnids userArachnids;
+
+
 }
