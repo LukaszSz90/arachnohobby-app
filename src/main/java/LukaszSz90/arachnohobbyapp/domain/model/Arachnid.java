@@ -35,12 +35,16 @@ public class Arachnid {
     @Column(name = "venom_force")
     private String venomForce;
 
-    private String describe;
-    private String size;
-    private String lifestyle;
+    private String description;
+    private String maxSize;
 
+    @Column(name = "area_of_occurrence")
+    private String areaOfOccurrence;
+
+    //------------------------------------------------
     @Column(name = "photo_url", nullable = false)
     private String photoUrl;
+    //------------------------------------------------
 
     @ManyToOne
     @JoinColumn(name = "level_of_difficulty_id")
@@ -57,8 +61,4 @@ public class Arachnid {
     @ToString.Exclude
     private LifeStyle lifeStyle;
 
-    @ManyToOne
-    @JoinColumn(name = "continent_of_occurrence_id",nullable = false)
-    @ToString.Exclude
-    private ContinentOfOccurrence continent;
 }
