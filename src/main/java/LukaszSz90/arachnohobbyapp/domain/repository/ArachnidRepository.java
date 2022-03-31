@@ -17,5 +17,6 @@ public interface ArachnidRepository extends JpaRepository<Arachnid, Long> {
 
     List<Arachnid> getAllByLevelOfDifficultyId(Long levelOfDifficultyId);
 
-    boolean existBySpecies(String species);
+    @Query(value = "SELECT species FROM Arachnid ar WHERE ar.species = species_name")
+    boolean existBySpecies(@Param("species_name") String species);
 }

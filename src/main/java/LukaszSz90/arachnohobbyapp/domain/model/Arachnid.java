@@ -42,7 +42,7 @@ public class Arachnid {
     private String areaOfOccurrence;
 
     //------------------------------------------------
-    @Column(name = "photo_url", nullable = false)
+    @Column(name = "photo_url")
     private String photoUrl;
     //------------------------------------------------
 
@@ -52,12 +52,12 @@ public class Arachnid {
     private LevelOfDifficulty levelOfDifficulty;
 
     @ManyToOne
-    @JoinColumn(name = "genus_id",nullable = false)
+    @JoinColumn(name = "genus_id")
     @ToString.Exclude
     private Genus genus;
 
     @ManyToOne
-    @JoinColumn(name = "life_style_id",nullable = false)
+    @JoinColumn(name = "life_style_id")
     @ToString.Exclude
     private LifeStyle lifeStyle;
 

@@ -6,8 +6,11 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
-@Builder @Table(name = "genus")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name = "genus")
 @EqualsAndHashCode(of = "genus_name")
 public class Genus {
 

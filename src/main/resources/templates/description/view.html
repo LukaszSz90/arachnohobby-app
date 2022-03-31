@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${species}">Arachnid description</title>
+</head>
+<body>
+    <div>
+        <div>
+            <img th:src="${photoUrl}" style="width: 128px; height: 128px">
+        </div>
+        <div>
+            <h1 th:text="${genus} + ' ' + ${species}">Default name</h1>
+        </div>
+        <div>
+            <p th:text="'Minimum temperature: ' + ${temperatureMin} + '\'C'">Default minimum temperature</p>
+            <p th:text="'Maximum temperature: ' + ${temperatureMax} + '\'C'">Default maximum temperature</p>
+        </div>
+        <div>
+            <p th:text="'Minimum temperature: ' + ${humidityMin} + '%'">Default minimum humidity</p>
+            <p th:text="'Maximum temperature: ' + ${humidityMax} + '%'">Default maximum humidity</p>
+        </div>
+        <div>
+            <p th:text="'Level of difficulty: ' + ${levelOfDifficulty}">Default level</p>
+            <p th:text="'Venom force: ' + ${venomForce}">Default venom force</p>
+        </div>
+        <div>
+            <p th:text="'Area of occurrence: ' + ${areaOfOccurrence}">Default area</p>
+            <p th:text="'Life style: ' + ${lifeStyle}">Default life style</p>
+        </div>
+        <div>
+            <p th:text="'Maximum size: ' + ${maxSize} + ' cm'">Default size</p>
+        </div>
+        <div>
+            <p th:text="${description}">Default description</p>
+        </div>
+    </div>
+    <div>
+        <button><a th:href="@{/home}" style="text-decoration:none;">Back to main page</a></button>
+    </div>
+
+</body>
+</html>

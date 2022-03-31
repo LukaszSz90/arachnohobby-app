@@ -10,6 +10,8 @@ import java.util.List;
 @Table(name = "user_arachnid")
 @AllArgsConstructor @NoArgsConstructor
 @Builder @Data
+@ToString(exclude = "user")
+@EqualsAndHashCode(of = {"userId"})
 public class UserArachnids {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +31,14 @@ public class UserArachnids {
     @Column(name = "copulation_date")
     private LocalDate copulationDate;
 
-    @Column(name = "grow_date")
-    private List<LocalDate> growDate;
+//    @Column(name = "grow_date")
+//    private List<LocalDate> growDate;
+
+    @Column(name = "last_grow_date")
+    private LocalDate lastGrowDate;
+
+    @Column(name = "actual_grow_date")
+    private LocalDate actualGrowDate;
 
     @Column(name = "actual_size")
     private String actualSize;

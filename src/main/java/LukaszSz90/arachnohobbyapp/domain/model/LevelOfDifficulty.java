@@ -20,7 +20,7 @@ public class LevelOfDifficulty {
     @Column(name = "level_name")
     private String levelName;
 
-    @OneToMany(mappedBy = "levelOfDifficulty")
+    @OneToMany(mappedBy = "levelOfDifficulty", fetch = FetchType.EAGER)
     @ToString.Exclude
     private Set<Arachnid> arachnids;
 

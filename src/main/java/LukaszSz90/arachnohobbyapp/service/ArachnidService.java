@@ -35,6 +35,10 @@ public class ArachnidService {
         }
 
         Arachnid arachnidToSave = arachnidConverter.from(arachnid);
+
+        if(arachnidToSave.getPhotoUrl().isBlank()) {
+            arachnidToSave.setPhotoUrl("/img/default_arachnid.jpg");
+        }
         log.debug("Added data to create: {}", arachnidToSave);
         arachnidRepository.save(arachnidToSave);
         log.debug("Arachnid has been saved: {}", arachnidToSave);

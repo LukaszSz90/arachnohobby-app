@@ -7,10 +7,11 @@ import LukaszSz90.arachnohobbyapp.domain.repository.LevelOfDifficultyRepository;
 import LukaszSz90.arachnohobbyapp.domain.repository.LifeStyleRepository;
 import LukaszSz90.arachnohobbyapp.web.command.ArachnidCommand;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-import javax.persistence.Converter;
 
-@Converter @RequiredArgsConstructor
+@Component
+@RequiredArgsConstructor
 public class ArachnidConverter {
     private final GenusRepository genusRepository;
     private final LifeStyleRepository lifeStyleRepository;
