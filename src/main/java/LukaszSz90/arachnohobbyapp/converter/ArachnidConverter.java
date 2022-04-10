@@ -1,11 +1,10 @@
 package LukaszSz90.arachnohobbyapp.converter;
 
 import LukaszSz90.arachnohobbyapp.domain.model.Arachnid;
-import LukaszSz90.arachnohobbyapp.domain.model.LevelOfDifficulty;
 import LukaszSz90.arachnohobbyapp.domain.repository.GenusRepository;
 import LukaszSz90.arachnohobbyapp.domain.repository.LevelOfDifficultyRepository;
 import LukaszSz90.arachnohobbyapp.domain.repository.LifeStyleRepository;
-import LukaszSz90.arachnohobbyapp.web.command.ArachnidCommand;
+import LukaszSz90.arachnohobbyapp.web.command.CreateArachnidCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +17,7 @@ public class ArachnidConverter {
     private final LevelOfDifficultyRepository levelOfDifficultyRepository;
 
 
-    public Arachnid from(ArachnidCommand command) {
+    public Arachnid from(CreateArachnidCommand command) {
         return Arachnid.builder()
                 .species(command.getSpecies())
                 .temperament(command.getTemperament())

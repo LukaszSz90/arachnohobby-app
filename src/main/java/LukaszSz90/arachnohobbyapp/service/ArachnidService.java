@@ -2,11 +2,10 @@ package LukaszSz90.arachnohobbyapp.service;
 
 import LukaszSz90.arachnohobbyapp.converter.ArachnidConverter;
 import LukaszSz90.arachnohobbyapp.domain.model.Arachnid;
-import LukaszSz90.arachnohobbyapp.domain.model.Genus;
 import LukaszSz90.arachnohobbyapp.domain.repository.ArachnidRepository;
 import LukaszSz90.arachnohobbyapp.domain.repository.GenusRepository;
 import LukaszSz90.arachnohobbyapp.exception.ArachnidAlreadyExistException;
-import LukaszSz90.arachnohobbyapp.web.command.ArachnidCommand;
+import LukaszSz90.arachnohobbyapp.web.command.CreateArachnidCommand;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class ArachnidService {
     private final ArachnidConverter arachnidConverter;
 
     @Transactional
-    public Long create(ArachnidCommand arachnid) {
+    public Long create(CreateArachnidCommand arachnid) {
         log.debug("Data to create arachnid: {}", arachnid);
 
         if (arachnidRepository.existBySpecies(arachnid.getSpecies())) {

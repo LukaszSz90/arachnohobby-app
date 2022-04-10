@@ -4,6 +4,7 @@ import LukaszSz90.arachnohobbyapp.domain.model.Arachnid;
 import LukaszSz90.arachnohobbyapp.domain.repository.ArachnidRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,17 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/description/arachnid")
+@RequestMapping("/arachnid-view")
 public class ArachnidProfileViewController {
 
     private final ArachnidRepository arachnidRepository;
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}-{genus}-{species}")
     private String prepareArachnidProfileView(Model model,
+                                              @PathVariable(name = "species") String species,
+                                              @PathVariable(name = "genus") String genusName,
                                               @PathVariable(name = "id") Long id) {
         Arachnid arachnid = arachnidRepository.getById(id);
 
-        model.addAttribute("species", arachnid.getSpecies());
+        model.addAttribute("species", species);
         model.addAttribute("temperament", arachnid.getTemperament());
         model.addAttribute("temperatureMin", arachnid.getTemperatureMin());
         model.addAttribute("temperatureMax", arachnid.getTemperatureMax());
@@ -35,9 +38,9 @@ public class ArachnidProfileViewController {
         model.addAttribute("areaOfOccurrence", arachnid.getAreaOfOccurrence());
         model.addAttribute("photoUrl", arachnid.getPhotoUrl());
         model.addAttribute("levelOfDifficulty", arachnid.getLevelOfDifficulty().getLevelName());
-        model.addAttribute("genus", arachnid.getGenus().getGenusName());
+        model.addAttribute("genus", genusName);
         model.addAttribute("lifeStyle", arachnid.getLifeStyle().getName());
 
-        return "description/view";
+        return "arachnid/view";
     }
 }

@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 @Data
 @AllArgsConstructor @NoArgsConstructor
 @Builder
-public class ArachnidCommand {
+public class CreateArachnidCommand {
 
     @NotNull
     private String species;

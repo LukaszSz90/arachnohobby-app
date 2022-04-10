@@ -37,7 +37,7 @@ public class RegistrationController {
         try {
             Long id = userService.create(registerUserCommand);
             log.debug("Created user with id = {}", id);
-            return "redirect:/login";
+            return "redirect:/home";
         }
         catch (UserAlreadyExistException uaee) {
             bindingResult.rejectValue("username",

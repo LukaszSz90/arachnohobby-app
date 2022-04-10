@@ -9,4 +9,6 @@ public interface GenusRepository extends JpaRepository<Genus, Long> {
 
     @Query(value = "SELECT genusName FROM Genus g WHERE g.id = id")
     Genus getNameById(@Param("id") Long id);
+
+    boolean existsByName(String genusName);
 }

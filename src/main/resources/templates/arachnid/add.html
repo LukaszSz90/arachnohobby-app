@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th>
+<head>
+    <meta charset="UTF-8">
+    <title>Add new arachnid</title>
+</head>
+<body>
+    <div>
+        <form th:action="@{/arachnid/add_new_animal" th:method="post" th:object="${createArachnidCommand}">
+            <label>
+                <input th:field="*{species}"
+                       type="text" id="species" placeholder="Arachnid species"/>
+            </label>
+        </form>
+    </div>
+
+</body>
+</html>

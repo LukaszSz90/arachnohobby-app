@@ -19,4 +19,5 @@ public interface ArachnidRepository extends JpaRepository<Arachnid, Long> {
 
     @Query(value = "SELECT species FROM Arachnid ar WHERE ar.species = species_name")
     boolean existBySpecies(@Param("species_name") String species);
+
 }
