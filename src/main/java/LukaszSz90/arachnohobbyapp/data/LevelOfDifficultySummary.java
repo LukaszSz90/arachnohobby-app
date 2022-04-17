@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class LevelOfDifficultySummary {
 
     private Long id;
-    private String levelName;
+    private String name;
 }

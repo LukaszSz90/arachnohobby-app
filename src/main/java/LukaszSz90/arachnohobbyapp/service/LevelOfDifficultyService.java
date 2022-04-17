@@ -1,6 +1,6 @@
 package LukaszSz90.arachnohobbyapp.service;
 
-import LukaszSz90.arachnohobbyapp.converter.LevelOfDifficultyConverter;
+import LukaszSz90.arachnohobbyapp.web.converter.LevelOfDifficultyConverter;
 import LukaszSz90.arachnohobbyapp.data.LevelOfDifficultySummary;
 import LukaszSz90.arachnohobbyapp.domain.model.LevelOfDifficulty;
 import LukaszSz90.arachnohobbyapp.domain.repository.LevelOfDifficultyRepository;
@@ -25,10 +25,10 @@ public class LevelOfDifficultyService {
     public Long create(CreateLevelOfDifficultyCommand levelOfDifficultyCommand) {
         log.debug("Data to create arachnid level of difficulty: {}", levelOfDifficultyCommand);
 
-        if(levelOfDifficultyRepository.existsByName(levelOfDifficultyCommand.getLevelName())){
+        if(levelOfDifficultyRepository.existsByName(levelOfDifficultyCommand.getName())){
             log.debug("Trying to add a level of difficulty with an existing name");
             throw new LevelOfDifficultyAlreadyExistException(
-                    String.format("Arachnid level of difficulty at name %s is already exist", levelOfDifficultyCommand.getLevelName())
+                    String.format("Arachnid level of difficulty at name %s is already exist", levelOfDifficultyCommand.getName())
             );
         }
 

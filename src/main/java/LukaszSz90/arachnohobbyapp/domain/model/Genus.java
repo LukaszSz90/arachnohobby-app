@@ -11,14 +11,14 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @Table(name = "genus")
-@EqualsAndHashCode(of = "genus_name")
+@EqualsAndHashCode(of = "name")
 public class Genus {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, name = "genus_name")
-    private String genusName;
+    @Column(nullable = false, unique = true)
+    private String name;
 
     @OneToMany(mappedBy = "genus", fetch = FetchType.EAGER)
     @ToString.Exclude

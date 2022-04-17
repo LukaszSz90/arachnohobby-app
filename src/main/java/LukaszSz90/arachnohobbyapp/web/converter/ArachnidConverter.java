@@ -1,4 +1,4 @@
-package LukaszSz90.arachnohobbyapp.converter;
+package LukaszSz90.arachnohobbyapp.web.converter;
 
 import LukaszSz90.arachnohobbyapp.domain.model.Arachnid;
 import LukaszSz90.arachnohobbyapp.domain.repository.GenusRepository;

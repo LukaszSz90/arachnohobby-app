@@ -11,14 +11,13 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @Table(name = "level_of_difficulty")
-@EqualsAndHashCode(of = "level_name")
+@EqualsAndHashCode(of = "name")
 public class LevelOfDifficulty {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "level_name")
-    private String levelName;
+    private String name;
 
     @OneToMany(mappedBy = "levelOfDifficulty", fetch = FetchType.EAGER)
     @ToString.Exclude

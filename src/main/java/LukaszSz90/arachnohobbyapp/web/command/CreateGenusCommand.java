@@ -15,5 +15,5 @@ import javax.validation.constraints.Size;
 public class CreateGenusCommand {
 
     @NotNull @Size(min = 3, max = 50)
-    private String genusName;
+    private String name;
 }

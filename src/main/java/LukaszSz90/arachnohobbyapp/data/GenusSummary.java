@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class GenusSummary {
 
     private Long id;
-    private String genusName;
+    private String name;
 }

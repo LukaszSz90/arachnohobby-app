@@ -9,6 +9,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -41,64 +42,29 @@ public class StartupDataLoader {
         log.info("Startup data loaded.");
     }
 
-
-    private void loadUserData() {
-        userRepository.save(User.builder()
-                .username("user1@user.com")
-                .password(passwordEncoder.encode("user1"))
-                .active(true)
-                .roles(Set.of("ROLE_USER"))
-                .build());
-
-        userRepository.save(User.builder()
-                .username("admin1@admin.com")
-                .password(passwordEncoder.encode("admin1"))
-                .active(true)
-                .roles(Set.of("ROLE_ADMIN"))
-                .build());
-    }
-
-    private void ladUserDetailsData() {
-        userDetailsRepository.save(UserDetails.builder()
-                .user(userRepository.getUserByUsername("user1@user.com"))
-                .pictureNameUrl("/img/default_user.jpg")
-                .nickName("user")
-                .breedingPeriod(LocalDate.of(2020,4,5))
-                .livingLocalization("Cracow")
-                .build());
-
-        userDetailsRepository.save(UserDetails.builder()
-                .user(userRepository.getUserByUsername("admin1@admin.com"))
-                .pictureNameUrl("/img/default_user.jpg")
-                .nickName("admin")
-                .breedingPeriod(LocalDate.now())
-                .livingLocalization("Wroclaw")
-                .build());
-    }
-
     private void loadGenusData() {
         genusRepository.save(Genus.builder()
-                .genusName("Avicularia")
+                .name("Avicularia")
                 .build());
 
         genusRepository.save(Genus.builder()
-                .genusName("Acanthoscurria")
+                .name("Acanthoscurria")
                 .build());
 
         genusRepository.save(Genus.builder()
-                .genusName("Nhandu")
+                .name("Nhandu")
                 .build());
 
         genusRepository.save(Genus.builder()
-                .genusName("Hysterocrates")
+                .name("Hysterocrates")
                 .build());
 
         genusRepository.save(Genus.builder()
-                .genusName("Psalmopeus")
+                .name("Psalmopeus")
                 .build());
 
         genusRepository.save(Genus.builder()
-                .genusName("Tliltocatl")
+                .name("Tliltocatl")
                 .build());
     }
 
@@ -118,15 +84,15 @@ public class StartupDataLoader {
 
     private void loadLevelOfDifficultyData() {
         levelOfDifficultyRepository.save(LevelOfDifficulty.builder()
-                .levelName("beginner")
+                .name("beginner")
                 .build());
 
         levelOfDifficultyRepository.save(LevelOfDifficulty.builder()
-                .levelName("intermediate")
+                .name("intermediate")
                 .build());
 
         levelOfDifficultyRepository.save(LevelOfDifficulty.builder()
-                .levelName("advanced")
+                .name("advanced")
                 .build());
     }
 
@@ -190,5 +156,41 @@ public class StartupDataLoader {
                         .build());
 
     }
+
+    @Transactional
+    private void loadUserData() {
+        userRepository.save(User.builder()
+                .username("user1@user.com")
+                .password(passwordEncoder.encode("user1"))
+                .active(true)
+                .roles(Set.of("ROLE_USER"))
+                .build());
+
+        userRepository.save(User.builder()
+                .username("admin1@admin.com")
+                .password(passwordEncoder.encode("admin1"))
+                .active(true)
+                .roles(Set.of("ROLE_ADMIN"))
+                .build());
+    }
+
+    private void ladUserDetailsData() {
+        userDetailsRepository.save(UserDetails.builder()
+                .user(userRepository.getUserByUsername("user1@user.com"))
+                .pictureNameUrl("/img/default_user.jpg")
+                .nickName("user")
+                .breedingPeriod(LocalDate.of(2020,4,5))
+                .livingLocalization("Cracow")
+                .build());
+
+        userDetailsRepository.save(UserDetails.builder()
+                .user(userRepository.getUserByUsername("admin1@admin.com"))
+                .pictureNameUrl("/img/default_user.jpg")
+                .nickName("admin")
+                .breedingPeriod(LocalDate.now())
+                .livingLocalization("Wroclaw")
+                .build());
+    }
+
 
 }

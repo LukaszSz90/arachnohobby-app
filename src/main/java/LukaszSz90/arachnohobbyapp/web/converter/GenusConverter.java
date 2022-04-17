@@ -1,4 +1,4 @@
-package LukaszSz90.arachnohobbyapp.converter;
+package LukaszSz90.arachnohobbyapp.web.converter;
 
 import LukaszSz90.arachnohobbyapp.data.GenusSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.Genus;
@@ -10,14 +10,14 @@ public class GenusConverter {
 
     public Genus from(CreateGenusCommand genusCommand) {
         return Genus.builder()
-                .genusName(genusCommand.getGenusName())
+                .name(genusCommand.getName())
                 .build();
     }
 
     public GenusSummary toGenusSummary(Genus genus) {
         return GenusSummary.builder()
                 .id(genus.getId())
-                .genusName(genus.getGenusName())
+                .name(genus.getName())
                 .build();
     }
 }

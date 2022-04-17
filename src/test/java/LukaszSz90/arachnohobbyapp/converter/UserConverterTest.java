@@ -2,6 +2,7 @@ package LukaszSz90.arachnohobbyapp.converter;
 
 import LukaszSz90.arachnohobbyapp.domain.model.User;
 import LukaszSz90.arachnohobbyapp.web.command.RegisterUserCommand;
+import LukaszSz90.arachnohobbyapp.web.converter.UserConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

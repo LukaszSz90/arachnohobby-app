@@ -1,4 +1,4 @@
-package LukaszSz90.arachnohobbyapp.converter;
+package LukaszSz90.arachnohobbyapp.web.converter;
 
 import LukaszSz90.arachnohobbyapp.data.LifeStyleSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.LifeStyle;

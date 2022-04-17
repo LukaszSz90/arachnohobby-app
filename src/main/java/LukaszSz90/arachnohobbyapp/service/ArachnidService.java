@@ -1,6 +1,6 @@
 package LukaszSz90.arachnohobbyapp.service;
 
-import LukaszSz90.arachnohobbyapp.converter.ArachnidConverter;
+import LukaszSz90.arachnohobbyapp.web.converter.ArachnidConverter;
 import LukaszSz90.arachnohobbyapp.domain.model.Arachnid;
 import LukaszSz90.arachnohobbyapp.domain.repository.ArachnidRepository;
 import LukaszSz90.arachnohobbyapp.domain.repository.GenusRepository;

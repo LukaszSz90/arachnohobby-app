@@ -1,6 +1,6 @@
 package LukaszSz90.arachnohobbyapp.service;
 
-import LukaszSz90.arachnohobbyapp.converter.GenusConverter;
+import LukaszSz90.arachnohobbyapp.web.converter.GenusConverter;
 import LukaszSz90.arachnohobbyapp.data.GenusSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.Genus;
 import LukaszSz90.arachnohobbyapp.domain.repository.GenusRepository;
@@ -21,17 +21,17 @@ public class GenusService {
     private final GenusConverter genusConverter;
 
     @Transactional
-    public Long create(CreateGenusCommand genusCommand) {
-        log.debug("Data to create arachnid genus: {}", genusCommand);
+    public Long create(CreateGenusCommand genuscommand) {
+        log.debug("Data to create arachnid genus: {}", genuscommand);
 
-        if(genusRepository.existsByName(genusCommand.getGenusName())) {
+        if(genusRepository.existsByName(genuscommand.getName())) {
             log.debug("Trying to add a genus with an existing name");
             throw new GenusAlreadyExistException(
-                    String.format("Arachnid genus at name %s is already exist", genusCommand.getGenusName())
+                    String.format("Arachnid genus at name %s is already exist", genuscommand.getName())
             );
         }
 
-        Genus genus = genusConverter.from(genusCommand);
+        Genus genus = genusConverter.from(genuscommand);
         genusRepository.save(genus);
 
         log.debug("Genus has been saved: {}", genus);

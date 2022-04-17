@@ -1,6 +1,6 @@
 package LukaszSz90.arachnohobbyapp.service;
 
-import LukaszSz90.arachnohobbyapp.converter.LifeStyleConverter;
+import LukaszSz90.arachnohobbyapp.web.converter.LifeStyleConverter;
 import LukaszSz90.arachnohobbyapp.data.LifeStyleSummary;
 import LukaszSz90.arachnohobbyapp.domain.model.LifeStyle;
 import LukaszSz90.arachnohobbyapp.domain.repository.LifeStyleRepository;

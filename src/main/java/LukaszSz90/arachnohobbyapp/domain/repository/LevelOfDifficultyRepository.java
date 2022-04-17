@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface LevelOfDifficultyRepository extends JpaRepository<LevelOfDifficulty,Long> {
 
-    boolean existsByName(String levelName);
+    boolean existsByName(String name);
 
 
 }

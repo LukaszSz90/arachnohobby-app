@@ -5,14 +5,124 @@
     <title>Add new arachnid</title>
 </head>
 <body>
-    <div>
-        <form th:action="@{/arachnid/add_new_animal" th:method="post" th:object="${createArachnidCommand}">
+<h1>Add new arachnid</h1>
+<div>
+    <form th:action="@{/arachnid/add_new_animal" th:method="post" th:object="${createArachnidCommand}">
+        <div>Photo Url
             <label>
-                <input th:field="*{species}"
-                       type="text" id="species" placeholder="Arachnid species"/>
+                <input th:field="*{photoUrl}"
+                       type="text" id="photoUr" placeholder="photo url"/>
             </label>
-        </form>
-    </div>
+            <div th:if="${#fields.hasErrors('photoUrl')}" th:text="${#fields.errors('photoUrl')}"></div>
+        </div>
+        <div>
+            <label>Genus
+                <select th:field="*{genusId}" id="genus">
+                    <option
+                        th:each="genus : ${genus}"
+                        th:value="${genus.id}"
+                        th:text="${genus.genusName}"></option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label>Species
+                <input th:field="*{species}"
+                       type="text" id="species" placeholder="name"/>
+            </label>
+            <div th:if="${#fields.hasErrors('species')}" th:text="${#fields.errors('species')}"></div>
+        </div>
+        <div>
+            <label>Area of occurrence
+                <input th:field="*{areaOfOccurrence}"
+                       type="text" id="areaOfOccurrence" placeholder="continent, country"/>
+            </label>
+            <div th:if="${#fields.hasErrors('areaOfOccurrence')}" th:text="${#fields.errors('areaOfOccurrence')}"></div>
+        </div>
+        <div>
+            <label>Life style
+                <select th:field="*{lifeStyleId}" id="lifeStyle">
+                    <option
+                            th:each="lifeStyle : ${lifeStyle}"
+                            th:value="${lifeStyle.id}"
+                            th:text="${lifeStyle.name}"></option>
+                </select>
+            </label>
+        </div>
+        <div>
+            <label>Temperament
+                <input th:field="*{temperament}"
+                       type="text" id="temperament" placeholder="e.g. fast"/>
+            </label>
+            <div th:if="${#fields.hasErrors('temperament')}" th:text="${#fields.errors('temperament')}"></div>
+        </div>
+        <div>Venom force
+            <label>
+                <input th:field="*{venomForce}"
+                       type="text" id="venomForce" placeholder="e.g. strong/week"/>
+            </label>
+            <div th:if="${#fields.hasErrors('venomForce')}" th:text="${#fields.errors('venomForce')}"></div>
+        </div>
+        <div>Maximum size
+            <label>
+                <input th:field="*{maxSize}"
+                       type="text" id="maxSize" placeholder="maximum size with leg"/>
+            </label>
+            <div th:if="${#fields.hasErrors('maxSize')}" th:text="${#fields.errors('maxSize')}"></div>
+        </div>
+        <div>Min. temperature
+            <label>
+                <input th:field="*{temperatureMin}"
+                       type="text" id="temperatureMin" placeholder="min 'C"/>
+            </label>
+            <div th:if="${#fields.hasErrors('temperatureMin')}" th:text="${#fields.errors('temperatureMin')}"></div>
+        </div>
+        <div>Max. temperature
+            <label>
+                <input th:field="*{temperatureMax}"
+                       type="text" id="temperatureMax" placeholder="max 'C"/>
+            </label>
+            <div th:if="${#fields.hasErrors('temperatureMax')}" th:text="${#fields.errors('temperatureMax')}"></div>
+        </div>
+        <div>Min. humidity
+            <label>
+                <input th:field="*{humidityMin}"
+                       type="text" id="humidityMin" placeholder="min %"/>
+            </label>
+            <div th:if="${#fields.hasErrors('humidityMin')}" th:text="${#fields.errors('humidityMin')}"></div>
+        </div>
+        <div>Max. humidity
+            <label>
+                <input th:field="*{humidityMax}"
+                       type="text" id="humidityMax" placeholder="max %"/>
+            </label>
+            <div th:if="${#fields.hasErrors('humidityMax')}" th:text="${#fields.errors('humidityMax')}"></div>
+        </div>
+        <div>
+            <label>Level of difficulty
+                <select th:field="*{levelOdDifficultyId}" id="levelOfDifficulty">
+                    <option
+                            th:each="levelOfDifficulty : ${levelOfDifficulty}"
+                            th:value="${levelOfDifficulty.id}"
+                            th:text="${levelOfDifficulty.levelName}"></option>
+                </select>
+            </label>
+        </div>
+        <div>Description
+            <label>
+                <input th:field="*{description}"
+                       type="text" id="description"/>
+            </label>
+            <div th:if="${#fields.hasErrors('description')}" th:text="${#fields.errors('description')}"></div>
+        </div>
+
+        <div>
+            <button type="submit">Add</button>
+            <div th:if="${#fields.hasGlobalErrors()}" th:value="${#fields.globalErrors()}"></div>
+        </div>
+
+    </form>
+</div>
 
 </body>
 </html>

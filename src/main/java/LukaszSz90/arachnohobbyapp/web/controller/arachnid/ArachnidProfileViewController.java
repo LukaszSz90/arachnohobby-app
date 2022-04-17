@@ -37,7 +37,7 @@ public class ArachnidProfileViewController {
         model.addAttribute("maxSize", arachnid.getMaxSize());
         model.addAttribute("areaOfOccurrence", arachnid.getAreaOfOccurrence());
         model.addAttribute("photoUrl", arachnid.getPhotoUrl());
-        model.addAttribute("levelOfDifficulty", arachnid.getLevelOfDifficulty().getLevelName());
+        model.addAttribute("levelOfDifficulty", arachnid.getLevelOfDifficulty().getName());
         model.addAttribute("genus", genusName);
         model.addAttribute("lifeStyle", arachnid.getLifeStyle().getName());
 

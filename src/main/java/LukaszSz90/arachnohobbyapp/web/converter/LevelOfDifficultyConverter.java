@@ -1,4 +1,4 @@
-package LukaszSz90.arachnohobbyapp.converter;
+package LukaszSz90.arachnohobbyapp.web.converter;
 
 import LukaszSz90.arachnohobbyapp.data.LevelOfDifficultySummary;
 import LukaszSz90.arachnohobbyapp.domain.model.LevelOfDifficulty;
@@ -11,14 +11,14 @@ public class LevelOfDifficultyConverter {
 
     public LevelOfDifficulty from(CreateLevelOfDifficultyCommand levelOfDifficultyCommand) {
         return LevelOfDifficulty.builder()
-                .levelName(levelOfDifficultyCommand.getLevelName())
+                .name(levelOfDifficultyCommand.getName())
                 .build();
     }
 
     public LevelOfDifficultySummary toLevelOfDifficultySummary(LevelOfDifficulty levelOfDifficulty) {
         return LevelOfDifficultySummary.builder()
                 .id(levelOfDifficulty.getId())
-                .levelName(levelOfDifficulty.getLevelName())
+                .name(levelOfDifficulty.getName())
                 .build();
 
     }

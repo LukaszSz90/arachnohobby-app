@@ -14,5 +14,5 @@ import javax.validation.constraints.NotNull;
 public class CreateLevelOfDifficultyCommand {
 
     @NotNull
-    private String levelName;
+    private String name;
 }

@@ -37,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/images/*").permitAll()
                 .antMatchers("/css/*").permitAll()
                 .antMatchers("/js/*").permitAll()
+                .antMatchers("/arachnid/add_new_animal").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
