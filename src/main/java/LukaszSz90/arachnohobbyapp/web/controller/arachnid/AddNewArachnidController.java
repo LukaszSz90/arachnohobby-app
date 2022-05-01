@@ -25,7 +25,7 @@ import java.util.List;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("arachnid/add_new_animal")
+@RequestMapping("/arachnid/add")
 public class AddNewArachnidController {
     private final ArachnidService arachnidService;
     private final GenusService genusService;
@@ -51,7 +51,7 @@ public class AddNewArachnidController {
     public String prepareAddArachnidPage(Model model) {
         model.addAttribute("createArachnidCommand", new CreateArachnidCommand());
         log.debug("Data in model: {}", model);
-        return "arachnid/add_new_animal";
+        return "arachnid/add";
     }
 
     @PostMapping
@@ -60,7 +60,7 @@ public class AddNewArachnidController {
         log.debug("Data to create arachnid: {}", arachnid);
         if(binding.hasErrors()) {
             log.debug("Incorrect data: {}", arachnid);
-            return "arachnid/add_new_animal";
+            return "arachnid/add";
         }
 
         try {
@@ -71,7 +71,7 @@ public class AddNewArachnidController {
             log.warn(re.getLocalizedMessage());
             log.debug("Error while creating arachnid", re);
             binding.rejectValue(null,null, "Error occured");
-            return "arachnid/add_new_animal";
+            return "arachnid/add";
         }
     }
 }

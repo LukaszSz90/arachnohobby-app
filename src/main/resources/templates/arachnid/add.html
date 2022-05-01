@@ -7,21 +7,22 @@
 <body>
 <h1>Add new arachnid</h1>
 <div>
-    <form th:action="@{/arachnid/add_new_animal" th:method="post" th:object="${createArachnidCommand}">
-        <div>Photo Url
-            <label>
-                <input th:field="*{photoUrl}"
-                       type="text" id="photoUr" placeholder="photo url"/>
-            </label>
-            <div th:if="${#fields.hasErrors('photoUrl')}" th:text="${#fields.errors('photoUrl')}"></div>
-        </div>
+    <form th:action="@{/arachnid/add}" th:method="post" th:object="${createArachnidCommand}">
+
+<!--        <div>Photo Url-->
+<!--            <label>-->
+<!--                <input th:field="*{photoUrl}"-->
+<!--                       type="text" id="photoUr" placeholder="photo url"/>-->
+<!--            </label>-->
+<!--            <div th:if="${#fields.hasErrors('photoUrl')}" th:text="${#fields.errors('photoUrl')}"></div>-->
+<!--        </div>-->
         <div>
             <label>Genus
                 <select th:field="*{genusId}" id="genus">
                     <option
                         th:each="genus : ${genus}"
                         th:value="${genus.id}"
-                        th:text="${genus.genusName}"></option>
+                        th:text="${genus.name}"></option>
                 </select>
             </label>
         </div>
@@ -104,7 +105,7 @@
                     <option
                             th:each="levelOfDifficulty : ${levelOfDifficulty}"
                             th:value="${levelOfDifficulty.id}"
-                            th:text="${levelOfDifficulty.levelName}"></option>
+                            th:text="${levelOfDifficulty.name}"></option>
                 </select>
             </label>
         </div>
